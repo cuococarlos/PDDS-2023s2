@@ -26,7 +26,7 @@ help:
 	@echo "Examples:"
 	@echo ""
 	@echo "	make ${GREEN}venv${NOFORMAT}		- Setup an initial virtual env"
-	@echo "	make ${GREEN}setup${NOFORMAT}		- Setup requirements, db and third party apps"
+	@echo "	make ${GREEN}venv.activate${NOFORMAT}		- Activate virtual env"
 	@echo "	make ${GREEN}server${NOFORMAT}		- Start server"
 	@echo ""
 	@grep -E '[a-zA-Z\.\-]+:.*?@ .*$$' $(firstword $(MAKEFILE_LIST))| tr -d '#'  | awk 'BEGIN {FS = ":.*?@ "}; {printf "${GREEN}%-30s${NOFORMAT} %s\n", $$1, $$2}'
@@ -36,7 +36,7 @@ help:
 
 #💻 server: @ Starts the Django server
 server:
-	$(PYTHON) ./backend/cultura/manage.py runserver
+	$(PYTHON) ./backend/manage.py runserver
 
 #⚙️ venv: @  Create and a virtual env
 .PHONY: venv
